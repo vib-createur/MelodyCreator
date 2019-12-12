@@ -15,7 +15,7 @@ xAllDuration = np.array([2 , 2 , 2 , 2 , 2 , 4 , 2 , 1 , 1 , 4 , 2 , 2 , 6 , 2 ,
 
 sortieSimplifie = np.array([[100,1,1,1,1,1,1,1],[1,100,1,1,1,1,1,1], [1,1,100,1,1,1,1,1],[1,1,1,100,1,1,1,1],[1,1,1,1,100,1,1,1],[1,1,1,1,1,100,1,1],[1,1,1,1,1,1,100,1],[1,1,1,1,1,1,1,100]])
 
-# X = (hours studying, hours sleeping), y = score on test
+# X = (four notes example of melody), y = the fihft note expected
 
 #CREATION DE LINPUT
 xAll=np.array([noteToNumber(note) for note in xAllNotes])
@@ -23,7 +23,7 @@ xAll=np.array([noteToNumber(note) for note in xAllNotes])
 #print(xAll.shape)
 X=[]
 y=[]
-for it in range(len(xAll)-1): # trains the NN 1,000 times
+for it in range(len(xAll)-1): # trains the NN len(Xall) times
   X = np.append(X,sortieSimplifie[int(xAll[it])])
 X = X.reshape(24,24) #
 #CREATION DE LOUTPUT POUR LENTRAINEMENT
@@ -127,6 +127,7 @@ print('la mélodie Finale :')
 print(melodie)
 print('la mélodie Finale :')
 melodieLettre = np.array([NumberToNote(number) for number in melodie])
+#here is the final melody :
 print(melodieLettre)
 
 NN.saveWeights()
